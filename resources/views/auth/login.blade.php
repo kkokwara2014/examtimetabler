@@ -120,7 +120,8 @@
             <div class="login-box-body">
                 <p class="login-box-msg">Sign In</p>
 
-                <form action="#" method="post">
+                <form action="{{ route('login') }}" method="post">
+                    {{ csrf_field() }}
                     <div class="form-group has-feedback">
                         {{-- <input type="email" class="form-control" placeholder="Email"> --}}
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"

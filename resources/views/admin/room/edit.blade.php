@@ -8,28 +8,34 @@
 <div class="row">
     <!-- Left col -->
     <section class="col-lg-12 connectedSortable">
-        <a href="{{ route('supervisor.index') }}" class="btn btn-success">
-           <span class="fa fa-eye"></span> All Supervisors
+        <a href="{{ route('department.index') }}" class="btn btn-success">
+            <span class="fa fa-eye"></span> All Departments
         </a>
         <br><br>
 
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-6">
 
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form action="{{ route('supervisor.update',$supervisors->id) }}" method="post">
+                        <form action="{{ route('department.update',$departments->id) }}" method="post">
                             {{ csrf_field() }}
                             {{method_field('PUT')}}
 
-                            <div>
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" value="{{$supervisors->name}}">
+                            <div class="form-group">
+                                <label for="">Name <b style="color: red;">*</b> </label>
+                                <input type="text" class="form-control" name="name" placeholder="Department Name"
+                                    value="{{$departments->name}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Code <b style="color: red;">*</b> </label>
+                                <input type="text" class="form-control" name="code"
+                                    placeholder="Department Code e.g ACC for Accountancy" value="{{$departments->code}}">
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="{{ route('supervisor.index') }}" class="btn btn-default">Cancel</a>
+                            <a href="{{ route('department.index') }}" class="btn btn-default">Cancel</a>
 
                     </div>
                     </form>
