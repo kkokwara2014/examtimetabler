@@ -19,6 +19,7 @@ class CreateSchedulesTable extends Migration
             $table->integer('examday_id');
             $table->integer('room_id');
             $table->integer('course_id');
+            $table->string('examtime');
             $table->timestamps();
         });
     }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     
+    protected $fillable=['user_id','examday_id','room_id','course_id','examtime'];
 
     public function user(){
         return $this->belongsTo(User::class);
