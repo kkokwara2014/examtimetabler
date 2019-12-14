@@ -58,11 +58,11 @@
                                         <tr>
                                             <th>Title</th>
                                             <th>Code</th>
-                                            <th>Credit Load</th>
-                                            <th>Semester</th>
-                                            <th>Acad. Session</th>
+                                            
+                                            
+                                            <th>Class</th>
                                             <th>Department</th>
-                                            <th>Taught By</th>
+                                           
 
                                             <th>Edit</th>
                                             <th>Delete</th>
@@ -76,11 +76,11 @@
                                         <tr>
                                             <td>{{$course->title}}</td>
                                             <td>{{$course->code}}</td>
-                                            <td>{{$course->creditload}}</td>
-                                            <td>{{$course->semester->name}}</td>
-                                            <td>{{$course->acadsession}}</td>
+                                           
+                                            <td>{{$course->classlevel->name}}</td>
+                                           
                                             <td>{{$course->department->code}}</td>
-                                            <td>{{$course->user->lastname.', '.$course->user->firstname}}</td>
+                                           
                                             {{-- <td>{{$course->user->lastname.', '.$course->user->firstname.' - '.$course->user->identitynumber}} --}}
                                             </td>
                                             {{-- <td style="text-align: center">
@@ -121,12 +121,8 @@
                                         <tr>
                                             <th>Title</th>
                                             <th>Code</th>
-                                            <th>Credit Load</th>
-                                            <th>Semester</th>
-                                            <th>Acad. Session</th>
+                                            <th>Class</th>
                                             <th>Department</th>
-                                            <th>Taught By</th>
-
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
@@ -167,25 +163,17 @@
                                         <input type="text" class="form-control" name="code" placeholder="Course code"
                                             autofocus>
                                     </div>
+                                    
                                     <div class="form-group">
-                                        <label for="">Credit Load</label>
-                                        <input type="text" class="form-control" name="creditload"
-                                            placeholder="Credit Load">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="">Semester</label>
-                                        <select name="semester_id" class="form-control">
-                                            <option selected="disabled">Select Semester</option>
-                                            @foreach ($semesters as $semester)
-                                            <option value="{{$semester->id}}">{{$semester->name}}</option>
+                                        <label for="">Class Level</label>
+                                        <select name="classlevel_id" class="form-control">
+                                            <option selected="disabled">Select Class Level</option>
+                                            @foreach ($classlevels as $classlevel)
+                                            <option value="{{$classlevel->id}}">{{$classlevel->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Acad. Seesion</label>
-                                        <input type="text" class="form-control" id="datepickeryear" name="acadsession"
-                                            placeholder="Academic Session">
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label for="">Department</label>
                                         <select name="department_id" class="form-control">
@@ -195,16 +183,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Taught By</label>
-                                        <select name="user_id" class="form-control">
-                                            <option selected="disabled">Select Lecturer</option>
-                                            @foreach ($lecturers as $lecturer)
-                                            <option value="{{$lecturer->id}}">{{$lecturer->lastname.', '.$lecturer->firstname}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
+                                    
 
                                     
                                 </div>

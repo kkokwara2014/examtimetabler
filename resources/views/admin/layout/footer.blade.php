@@ -1,8 +1,8 @@
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    {{-- Powered by Done-Right Systems Inc. --}}
+    Powered by Nwani Adanne Rejoice - 2017/HND/23055/CS.
   </div>
-  <strong>Copyright &copy; 2019 courseregsys</strong> All rights
+  <strong>Copyright &copy; 2019 examtimetabler</strong> All rights
   reserved.
 </footer>
 

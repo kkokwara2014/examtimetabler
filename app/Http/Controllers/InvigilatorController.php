@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Classlevel;
 use Illuminate\Http\Request;
-use App\Course;
-use App\Department;
-use App\Semester;
-use App\User;
-use Auth;
 
-class CourseController extends Controller
+class InvigilatorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,13 +13,7 @@ class CourseController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-        $classlevels=Classlevel::orderBy('name','asc')->get();
-        $departments=Department::orderBy('name','asc')->get();
-        $courses=Course::orderBy('created_at','desc')->get();
-        $invigilators=User::where('role_id','2')->orderBy('lastname','asc')->get();
-
-        return view('admin.course.index',compact('courses','departments','classlevels','user','invigilators'));
+        //
     }
 
     /**
@@ -46,18 +34,7 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|string',
-            'code' => 'required',
-            
-            'classlevel_id' => 'required',
-            
-            'department_id' => 'required',
-        ]);
-
-        Course::create($request->all());
-
-        return redirect(route('course.index'));
+        //
     }
 
     /**

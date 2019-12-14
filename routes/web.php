@@ -59,6 +59,7 @@ if ($timeIt > date('Y-m-d')) {
         Route::resource('department', 'DepartmentController');
         Route::resource('block', 'BlockController');
         Route::resource('room', 'RoomController');
+        Route::resource('invigilator', 'InvigilatorController');
        
         Route::get('user/profile', 'UserController@profileimage')->name('user.profile');
         Route::post('user/profile', 'UserController@updateprofileimage')->name('user.profile.update');

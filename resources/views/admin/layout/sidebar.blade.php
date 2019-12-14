@@ -31,15 +31,17 @@
       {{-- <li><a href="{{route('comment.index')}}"><i class="fa fa-comment-o"></i> Comments</a></li> --}}
 
       {{-- only for the Admin --}}
-      @if (Auth::user()->role->id==1)
+      {{-- @if (Auth::user()->role->id==1) --}}
       <li><a href="{{route('department.index')}}"><i class="fa fa-university"></i> Department</a></li>
       {{-- <li><a href="{{route('classlevel.index')}}"><i class="fa fa-th"></i> Class Level</a></li> --}}
       <li><a href="{{route('course.index')}}"><i class="fa fa-file-text-o"></i> Courses</a></li>
-      @endif
+      {{-- @endif --}}
 
       {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==3) --}}
 
-      {{-- <li><a href="{{route('student.index')}}"><i class="fa fa-users"></i> Students</a></li> --}}
+      <li><a href="{{route('block.index')}}"><i class="fa fa-bank"></i> Block</a></li>
+      <li><a href="{{route('room.index')}}"><i class="fa fa-bank"></i> Rooms</a></li>
+      <li><a href="{{route('invigilator.index')}}"><i class="fa fa-graduation-cap"></i> Invigilator</a></li>
 
       {{-- @endif --}}
 
