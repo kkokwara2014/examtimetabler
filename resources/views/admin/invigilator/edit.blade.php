@@ -8,8 +8,8 @@
 <div class="row">
     <!-- Left col -->
     <section class="col-lg-12 connectedSortable">
-        <a href="{{ route('supervisor.index') }}" class="btn btn-success">
-           <span class="fa fa-eye"></span> All Supervisors
+        <a href="{{ route('invigilator.index') }}" class="btn btn-success">
+           <span class="fa fa-eye"></span> All Invigilators
         </a>
         <br><br>
 
@@ -19,17 +19,17 @@
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form action="{{ route('supervisor.update',$supervisors->id) }}" method="post">
+                        <form action="{{ route('invigilator.update',$invigilators->id) }}" method="post">
                             {{ csrf_field() }}
                             {{method_field('PUT')}}
 
                             <div>
-                                <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name" value="{{$supervisors->name}}">
+                                <label for="name">Last Name</label>
+                                <input type="text" class="form-control" name="lastname" value="{{$invigilators->lastname}}">
                             </div>
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="{{ route('supervisor.index') }}" class="btn btn-default">Cancel</a>
+                            <a href="{{ route('invigilator.index') }}" class="btn btn-default">Cancel</a>
 
                     </div>
                     </form>

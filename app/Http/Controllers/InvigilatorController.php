@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\User;
+use Auth;
+
 use Illuminate\Http\Request;
 
 class InvigilatorController extends Controller
@@ -14,7 +17,12 @@ class InvigilatorController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $invigilators = User::where('role_id', '3')->orderBy('created_at','desc')->get();
+        $departments = Department::orderBy('name', 'asc')->get();
+
+
+        return view('admin.invigilator.index', compact('user', 'invigilators', 'departments'));
     }
 
     /**
@@ -38,7 +46,7 @@ class InvigilatorController extends Controller
         $this->validate($request, [
             'lastname' => 'required|string',
             'firstname' => 'required|string',
-            'regnumber' => 'required',
+           
             'email' => 'required|email|unique:users',
             'phone' => 'required',
             'department_id' => 'required',
@@ -59,7 +67,7 @@ class InvigilatorController extends Controller
         $user->save();
 
         return redirect(route('invigilator.index'));
-    }
+    
     }
 
     /**
@@ -70,7 +78,11 @@ class InvigilatorController extends Controller
      */
     public function show($id)
     {
-        //
+        $invigilator=User::find($id);
+        // $invigilatorcourses=Course::where('user_id',$id)->get();
+        $departments = Department::orderBy('name', 'asc')->get();
+        
+        return view('admin.invigilator.show',array('user'=>Auth::user()),compact('invigilator','departments'));
     }
 
     /**

@@ -8,8 +8,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Lecturer Details
-            <small>Lecturer Information</small>
+            Invigilator Details
+            <small>Invigilator Information</small>
         </h1>
         {{-- <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -24,7 +24,7 @@
             <!-- Left col -->
             <section class="col-lg-12 connectedSortable">
                 <div>
-                    <a href="{{ route('lecturer.index') }}" class="btn btn-primary btn-sm">
+                    <a href="{{ route('invigilator.index') }}" class="btn btn-primary btn-sm">
                         Back</a>
                 </div>
                 <br>
@@ -38,19 +38,19 @@
                                         <img style="display: block;
                                 margin-left: auto;
                                 margin-right: auto;
-                                width: 50%;" src="{{url('user_images',$lecturer->userimage)}}" alt=""
+                                width: 50%;" src="{{url('user_images',$invigilator->userimage)}}" alt=""
                                             class="img-responsive img-circle" width="180" height="180">
 
                                         <p>
-                                            <h3>{{$lecturer->lastname.' '.$lecturer->firstname}}</h3>
+                                            <h3>{{$invigilator->lastname.' '.$invigilator->firstname}}</h3>
                                         </p>
                                         <hr>
-                                        <div>Staff Number : {{$lecturer->regnumber}} </div>
-                                        {{-- <div>Gender : {{$lecturer->gender}}
+                                        {{-- <div>Staff Number : {{$invigilator->regnumber}} </div> --}}
+                                        {{-- <div>Gender : {{$invigilator->gender}}
                                     </div> --}}
-                                    <div>Email : {{$lecturer->email}} </div>
-                                    <div>Phone : {{$lecturer->phone}}</div>
-                                    <div>Department : {{$lecturer->department->name.' - '.$lecturer->department->code}}
+                                    <div>Email : {{$invigilator->email}} </div>
+                                    <div>Phone : {{$invigilator->phone}}</div>
+                                    <div>Department : {{$invigilator->department->name.' - '.$invigilator->department->code}}
                                     </div>
                                     <hr>
                                 </div>
@@ -69,18 +69,18 @@
                             <div class="row">
 
                                 <div class="col-md-12">
-                                    <h3>Courses Taught</h3>
+                                    <h3>Exam Schedule</h3>
                                     <ul class="list-group">
-                                        @forelse ($lecturercourses as $lectcourse)
-                                        <li class="list-group-item">
+                                        {{-- @forelse ($lecturercourses as $lectcourse) --}}
+                                        {{-- <li class="list-group-item"> --}}
 
-                                            {{$lectcourse['title'].' - '.$lectcourse['code']}}
+                                            {{-- {{$lectcourse['title'].' - '.$lectcourse['code']}} --}}
 
-                                        </li>
-                                        @empty
-                                        <p style="background-color: crimson;" class="badge badge-info"><strong>No
+                                        {{-- </li> --}}
+                                        {{-- @empty --}}
+                                        {{-- <p style="background-color: crimson;" class="badge badge-info"><strong>No
                                                 Course assigned yet!</strong></p>
-                                        @endforelse
+                                        @endforelse --}}
                                     </ul>
 
                                 </div>
