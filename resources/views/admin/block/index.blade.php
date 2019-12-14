@@ -9,7 +9,7 @@
     <!-- Left col -->
     <section class="col-lg-8 connectedSortable">
         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
-            <span class="fa fa-plus"></span> Add Room
+            <span class="fa fa-plus"></span> Add Block
         </button>
         <br><br>
 
@@ -23,7 +23,7 @@
                             <thead>
                                 <tr>
                                     <th>Name</th>
-                                   <th>Block</th>
+                                   
                                     <th>Edit</th>
                                     <th>Delete</th>
 

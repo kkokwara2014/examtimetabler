@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Block;
 use Illuminate\Http\Request;
+use Auth;
+
 
 class BlockController extends Controller
 {
@@ -13,7 +16,10 @@ class BlockController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $blocks = Block::orderBy('created_at', 'desc')->get();
+
+        return view('admin.block.index', compact('user', 'blocks'));
     }
 
     /**
@@ -34,7 +40,14 @@ class BlockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+           
+        ]);
+
+        Block::create($request->all());
+
+        return redirect(route('block.index'));
     }
 
     /**
@@ -56,7 +69,8 @@ class BlockController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blocks = Block::where('id', $id)->first();;
+        return view('admin.block.edit', array('user' => Auth::user()), compact('blocks'));
     }
 
     /**
@@ -68,7 +82,17 @@ class BlockController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+            
+        ]);
+
+        $block = Block::find($id);
+        $block->name = $request->name;
+       
+        $block->save();
+
+        return redirect(route('block.index'));
     }
 
     /**
@@ -79,6 +103,7 @@ class BlockController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $blocks = Block::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

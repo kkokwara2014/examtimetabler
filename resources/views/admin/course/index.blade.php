@@ -58,12 +58,8 @@
                                         <tr>
                                             <th>Title</th>
                                             <th>Code</th>
-                                            
-                                            
                                             <th>Class</th>
                                             <th>Department</th>
-                                           
-
                                             <th>Edit</th>
                                             <th>Delete</th>
 

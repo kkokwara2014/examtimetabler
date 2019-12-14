@@ -47,30 +47,22 @@
                                         <label for="">Course code <b style="color: red;">*</b></label>
                                         <input type="text" class="form-control" name="code" value="{{$courses->code}}">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Credit Load</label>
-                                        <input type="text" class="form-control" name="creditload"
-                                            value="{{$courses->creditload}}">
-                                    </div>
+                                    
 
                                     <div class="form-group">
-                                        <label for="name">Semester</label>
-                                        <select name="semester_id" class="form-control">
-                                            <option selected="disabled">Select Semester</option>
-                                            @foreach ($semesters as $semester)
+                                        <label for="name">Class Level</label>
+                                        <select name="classlevel_id" class="form-control">
+                                            <option selected="disabled">Select Class Level</option>
+                                            @foreach ($classlevels as $classlevel)
 
-                                            <option value="{{$semester->id}}"
-                                                {{$semester->id==$courses->semester_id ? 'selected':''}}>
-                                                {{$semester->name}}</option>
+                                            <option value="{{$classlevel->id}}"
+                                                {{$classlevel->id==$courses->classlevel_id ? 'selected':''}}>
+                                                {{$classlevel->name}}</option>
 
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="">Acad. Session</label>
-                                        <input type="text" class="form-control" id="datepickeryear" name="acadsession"
-                                            value="{{$courses->acadsession}}">
-                                    </div>
+                                    
                                     <div class="form-group">
                                         <label for="name">Department</label>
                                         <select name="department_id" class="form-control">
@@ -84,19 +76,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="name">Lecturer</label>
-                                        <select name="user_id" class="form-control">
-                                            <option selected="disabled">Select Lecturer</option>
-                                            @foreach ($lecturers as $user)
-
-                                            <option value="{{$user->id}}"
-                                                {{$user->id==$courses->user_id ? 'selected':''}}>
-                                                {{$user->lastname.', '.$user->firstname}}</option>
-
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    
 
                                     <br>
                                     <button type="submit" class="btn btn-primary">Update</button>
