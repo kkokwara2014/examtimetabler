@@ -8,8 +8,8 @@
 <div class="row">
     <!-- Left col -->
     <section class="col-lg-12 connectedSortable">
-        <a href="{{ route('block.index') }}" class="btn btn-success">
-            <span class="fa fa-eye"></span> All blocks
+        <a href="{{ route('room.index') }}" class="btn btn-success">
+            <span class="fa fa-eye"></span> All Rooms
         </a>
         <br><br>
 
@@ -19,19 +19,32 @@
                 <div class="box">
                     <!-- /.box-header -->
                     <div class="box-body">
-                        <form action="{{ route('block.update',$blocks->id) }}" method="post">
+                        <form action="{{ route('room.update',$rooms->id) }}" method="post">
                             {{ csrf_field() }}
                             {{method_field('PUT')}}
 
                             <div class="form-group">
-                                <label for="">Name <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="name" 
-                                    value="{{$blocks->name}}">
+                                <label for="">Room # <b style="color: red;">*</b> </label>
+                                <input type="text" class="form-control" name="rmnumber" 
+                                    value="{{$rooms->rmnumber}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Block</label>
+                                <select name="block_id" class="form-control">
+                                    <option selected="disabled">Select block</option>
+                                    @foreach ($blocks as $block)
+
+                                    <option value="{{$block->id}}"
+                                        {{$block->id==$rooms->block_id ? 'selected':''}}>
+                                        {{$block->name}}</option>
+
+                                    @endforeach
+                                </select>
                             </div>
                             
                             <br>
                             <button type="submit" class="btn btn-primary">Update</button>
-                            <a href="{{ route('block.index') }}" class="btn btn-default">Cancel</a>
+                            <a href="{{ route('room.index') }}" class="btn btn-default">Cancel</a>
 
                     </div>
                     </form>

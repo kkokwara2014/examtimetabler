@@ -22,7 +22,7 @@
                         <table id="example1" class="table table-bordered table-striped table-responsive">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Room #</th>
                                    <th>Block</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
@@ -30,23 +30,24 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($blocks as $block)
+                                @foreach ($rooms as $room)
                                 <tr>
-                                    <td>{{$block->name}}</td>
+                                    <td>{{$room->rmnumber}}</td>
+                                    <td>{{$room->block->name}}</td>
                                     
 
-                                    <td><a href="{{ route('block.edit',$block->id) }}"><span
+                                    <td><a href="{{ route('room.edit',$room->id) }}"><span
                                                 class="fa fa-edit fa-2x text-primary"></span></a></td>
                                     <td>
-                                        <form id="delete-form-{{$block->id}}" style="display: none"
-                                            action="{{ route('block.destroy',$block->id) }}" method="post">
+                                        <form id="delete-form-{{$room->id}}" style="display: none"
+                                            action="{{ route('room.destroy',$room->id) }}" method="post">
                                             {{ csrf_field() }}
                                             {{method_field('DELETE')}}
                                         </form>
                                         <a href="" onclick="
                                                             if (confirm('Are you sure you want to delete this?')) {
                                                                 event.preventDefault();
-                                                            document.getElementById('delete-form-{{$block->id}}').submit();
+                                                            document.getElementById('delete-form-{{$room->id}}').submit();
                                                             } else {
                                                                 event.preventDefault();
                                                             }
@@ -59,8 +60,8 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Name</th>
-                                    
+                                    <th>Room #</th>
+                                   <th>Block</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -78,19 +79,28 @@
         <div class="modal fade" id="modal-default">
             <div class="modal-dialog">
 
-                <form action="{{ route('block.store') }}" method="post">
+                <form action="{{ route('room.store') }}" method="post">
                     {{ csrf_field() }}
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span></button>
-                            <h4 class="modal-title"><span class="fa fa-university"></span> Add Block</h4>
+                            <h4 class="modal-title"><span class="fa fa-university"></span> Add Room</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="">Name <b style="color: red;">*</b> </label>
-                                <input type="text" class="form-control" name="name" placeholder="Block Name"
+                                <label for="">Room Number <b style="color: red;">*</b> </label>
+                                <input type="text" class="form-control" name="rmnumber" placeholder="Room Number"
                                     autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Block</label>
+                                <select name="block_id" class="form-control">
+                                    <option selected="disabled">Select Block</option>
+                                    @foreach ($blocks as $block)
+                                    <option value="{{$block->id}}">{{$block->name}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             
 

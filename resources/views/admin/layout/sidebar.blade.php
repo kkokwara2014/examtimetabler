@@ -42,6 +42,7 @@
       <li><a href="{{route('block.index')}}"><i class="fa fa-bank"></i> Block</a></li>
       <li><a href="{{route('room.index')}}"><i class="fa fa-bank"></i> Rooms</a></li>
       <li><a href="{{route('invigilator.index')}}"><i class="fa fa-graduation-cap"></i> Invigilator</a></li>
+      <li><a href="{{route('schedule.index')}}"><i class="fa fa-exchange"></i> Schedule Exam</a></li>
 
       {{-- @endif --}}
 

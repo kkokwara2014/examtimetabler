@@ -8,8 +8,8 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
         <h1>
-            Lecturers
-            <small>All Lecturers</small>
+            Invigilators
+            <small>All Invigilators</small>
         </h1>
         {{-- <ol class="breadcrumb">
               <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -26,7 +26,7 @@
 
                 {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==2) --}}
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-default">
-                    <span class="fa fa-plus"></span> Add Lecturer
+                    <span class="fa fa-plus"></span> Add Invigilator
                 </button>
                 {{-- @endif --}}
                 <br>
