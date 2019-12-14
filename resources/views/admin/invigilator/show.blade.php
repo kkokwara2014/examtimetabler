@@ -70,6 +70,7 @@
 
                                 <div class="col-md-12">
                                     <h3>Exam Schedule</h3>
+                                    <hr>
                                     <ul class="list-group">
                                         {{-- @forelse ($lecturercourses as $lectcourse) --}}
                                         {{-- <li class="list-group-item"> --}}
