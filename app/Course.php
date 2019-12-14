@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Course extends Model
 {
-    
+    protected $fillable=['title','code','department_id','classlevel_id','isscheduled'];
 
     public function classlevel(){
         return $this->belongsTo(Classlevel::class);

@@ -20,12 +20,12 @@ class CourseController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $classlevels=Classlevel::orderBy('name','asc')->get();
-        $departments=Department::orderBy('name','asc')->get();
-        $courses=Course::orderBy('created_at','desc')->get();
-        $invigilators=User::where('role_id','2')->orderBy('lastname','asc')->get();
+        $classlevels = Classlevel::all();
+        $departments = Department::orderBy('name', 'asc')->get();
+        $courses = Course::orderBy('created_at', 'desc')->get();
+        $invigilators = User::where('role_id', '2')->orderBy('lastname', 'asc')->get();
 
-        return view('admin.course.index',compact('courses','departments','classlevels','user','invigilators'));
+        return view('admin.course.index', compact('courses', 'departments', 'classlevels', 'user', 'invigilators'));
     }
 
     /**
@@ -49,9 +49,7 @@ class CourseController extends Controller
         $this->validate($request, [
             'title' => 'required|string',
             'code' => 'required',
-            
             'classlevel_id' => 'required',
-            
             'department_id' => 'required',
         ]);
 
