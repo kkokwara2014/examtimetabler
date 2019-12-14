@@ -51,4 +51,10 @@ class LoginController extends Controller
         
         return redirect(route('index'));
     }
+    public function logout()
+    {
+        $this->guard()->logout();
+       
+        return redirect(route('index'));
+    }
 }

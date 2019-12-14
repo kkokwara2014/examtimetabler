@@ -41,6 +41,7 @@ if ($timeIt > date('Y-m-d')) {
 
 
     Route::post('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
     // Password Reset Routes...
     Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
