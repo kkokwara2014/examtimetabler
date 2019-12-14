@@ -15,6 +15,7 @@ class CreateClasslevelsTable extends Migration
     {
         Schema::create('classlevels', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
             $table->timestamps();
         });
     }
